@@ -46,7 +46,9 @@ struct DocumentListView: View {
         Button {
             Task {
                 await viewModel.deleteDocument(index)
-                showDeleteAlert = true
+                await MainActor.run(body: {
+                    showDeleteAlert = true
+                })
             }
         } label: {
             VStack {

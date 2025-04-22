@@ -15,8 +15,8 @@ struct DocCardView: View {
     
     init(doc: Document, onFavoriteToggle: @escaping (Document) -> Void) {
         self.doc = doc
-        self.docUpdate = DocumentUpdate() // Make sure DocumentUpdate is properly initialized
-        self.onFavoriteToggle = onFavoriteToggle // Assign the closure
+        self.docUpdate = DocumentUpdate()
+        self.onFavoriteToggle = onFavoriteToggle 
     }
     
     var body: some View {
@@ -33,10 +33,13 @@ struct DocCardView: View {
                     }
                     
                 }, label: { Image(doc.isFavourite ? "star-filled": "star") })
+                .frame(width: 25,height: 25)
+                .padding(.leading, 4)
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Name: \(doc.docName)")
                     Text("Created: \(doc.createdDate)")
                 }
+                .padding(.leading, 4)
                 Spacer()
             }
             .padding(8)
